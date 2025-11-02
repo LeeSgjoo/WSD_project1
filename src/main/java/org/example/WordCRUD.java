@@ -51,7 +51,6 @@ public class WordCRUD implements ICRUD {
         String word = sc.next();
         sc.nextLine();
         // next로 하면 입력버퍼가 남아있어서 meaning의 입력에 지장을 주므로 nextLine을 사용한다
-
         System.out.print("뜻 입력: ");
         // 차고 진입로
         String meaning = sc.nextLine();
