@@ -1,3 +1,3 @@
-1|apple|a kind of fruit
-2|banana|a yellow fruit
-3|philosophy|the study of ideas
+1|apple|사과
+2|banana|바나나
+3|philosophy|철학
