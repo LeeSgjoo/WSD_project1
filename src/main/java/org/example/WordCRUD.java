@@ -62,4 +62,20 @@ public class WordCRUD implements ICRUD {
         list.add(one); // ArrayList의 add이고 WordCRUD의 add와는 다른 메서드임
         System.out.println("새 단어가 단어장에 추가되었습니다. ");
     }
+    public void deleteItem(){
+        System.out.print ("=> 삭제할 단어 검색: ");
+        String keyword = sc.next();
+        ArrayList<Integer> idList = this.listAll(keyword); // 실제 단어 List의 아이디들이 담겨있음;
+        System.out.print("=> 삭제할 번호 선택: ");
+        int id = sc.nextInt(); // 실제 단어 리스트의 아이디가 아니라 아이디 리스트의 아이디 번호이다.
+        sc.nextLine(); // 개행 문자 소비하기
+        System.out.print("=> 정말로 삭제하시겠습니까?(Y/N): ");
+        String answer = sc.next();
+        if(answer.equalsIgnoreCase("Y")) {
+            list.remove((int)idList.get(id - 1));
+            System.out.println("삭제되었습니다.");
+        }
+
+        else System.out.println("취소되었습니다.");
+    }
 }
