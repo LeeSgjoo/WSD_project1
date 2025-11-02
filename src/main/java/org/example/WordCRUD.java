@@ -57,4 +57,9 @@ public class WordCRUD implements ICRUD {
 
         return new Word(0,level,word,meaning);
     }
+    public void addWord(){
+        Word one = (Word)add();
+        list.add(one); // ArrayList의 add이고 WordCRUD의 add와는 다른 메서드임
+        System.out.println("새 단어가 단어장에 추가되었습니다. ");
+    }
 }
