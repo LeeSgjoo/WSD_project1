@@ -107,6 +107,22 @@ public class WordCRUD implements ICRUD {
             e.printStackTrace();
         }
     }
+    public void listAll(int level){
+        int j = 0;
+        System.out.println("-----------------------------------------------");
+        for(int i = 0; i < list.size(); i++){
+            Word one = list.get(i);
+            if(level == one.getLevel()) {
+                j++;
+                System.out.print(j + " ");
+                System.out.println(one.toString());
+            }
+        }
+        if (j == 0) {
+            System.out.println("해당 난이도의 단어가 없습니다.");
+        }
+        System.out.println("-----------------------------------------------");
+    }
 
     // 파일 로드 기능 (프로그램 시작 시)
     public void loadFile() {
