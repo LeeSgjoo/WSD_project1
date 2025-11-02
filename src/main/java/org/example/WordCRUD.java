@@ -78,4 +78,38 @@ public class WordCRUD implements ICRUD {
 
         else System.out.println("취소되었습니다.");
     }
+    public void deleteItem(){
+        System.out.print ("=> 삭제할 단어 검색: ");
+        String keyword = sc.next();
+        ArrayList<Integer> idList = this.listAll(keyword); // 실제 단어 List의 아이디들이 담겨있음;
+        System.out.print("=> 삭제할 번호 선택: ");
+        int id = sc.nextInt(); // 실제 단어 리스트의 아이디가 아니라 아이디 리스트의 아이디 번호이다.
+        sc.nextLine(); // 개행 문자 소비하기
+        System.out.print("=> 정말로 삭제하시겠습니까?(Y/N): ");
+        String answer = sc.next();
+        if(answer.equalsIgnoreCase("Y")) {
+            list.remove((int)idList.get(id - 1));
+            System.out.println("삭제되었습니다.");
+        }
+
+        else System.out.println("취소되었습니다.");
+    }
+    public void updateItem() {
+        System.out.print ("=> 수정할 단어 검색: ");
+        String keyword = sc.next();
+        ArrayList<Integer> idList = this.listAll(keyword); // 실제 단어 List의 아이디들이 담겨있음;
+        System.out.print("=> 수정할 번호 선택: ");
+        int id = sc.nextInt(); // 실제 단어 리스트의 아이디가 아니라 아이디 리스트의 아이디 번호이다.
+        sc.nextLine(); // 개행 문자 소비하기
+        System.out.print("=> 뜻 입력: ");
+        String meaning = sc.nextLine();
+        Word word = list.get(idList.get(id-1));
+        // idList.get으로 진짜 단어 리스트의 아이디를 얻어온다.
+        // 첫번째 listAll()을 1부터 출력되게 만들었기에 1이면 실제 아이디는 0이므로 id-1으로 얻어온다.
+        word.setMeaning(meaning);
+        System.out.println("단어가 수정되었습니다.");
+    }
+
+
+
 }
